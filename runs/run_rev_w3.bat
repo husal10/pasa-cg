@@ -1,0 +1,72 @@
+@echo off
+setlocal
+rem Additional sweeps (results_rev), window 3: 16 runs.
+rem Run from the pasa_itsc_code folder. Finished cells are skipped, so it can be restarted.
+if not exist results_rev mkdir results_rev
+if not exist data\net_c1_rev_w3 xcopy /I /Y /Q data\net_c1_phase_symmetric data\net_c1_rev_w3 >nul
+
+echo [w3 1/16] results_rev/R2_mingreen20/symmetric/medium/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R2_mingreen20/symmetric/medium/phase_symmetric --min-green 20
+if errorlevel 1 echo FAILED w3 run 1: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R2_mingreen20/symmetric/medium/phase_symmetric --min-green 20 >> results_rev\failures_w3.txt
+
+echo [w3 2/16] results_rev/R2_mingreen20/symmetric/medium/single_approach
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern single_approach --fault-severity high --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R2_mingreen20/symmetric/medium/single_approach --min-green 20
+if errorlevel 1 echo FAILED w3 run 2: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern single_approach --fault-severity high --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R2_mingreen20/symmetric/medium/single_approach --min-green 20 >> results_rev\failures_w3.txt
+
+echo [w3 3/16] results_rev/R2_mingreen20/symmetric/high/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R2_mingreen20/symmetric/high/phase_symmetric --min-green 20
+if errorlevel 1 echo FAILED w3 run 3: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R2_mingreen20/symmetric/high/phase_symmetric --min-green 20 >> results_rev\failures_w3.txt
+
+echo [w3 4/16] results_rev/R2_mingreen20/symmetric/high/single_approach
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern single_approach --fault-severity high --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R2_mingreen20/symmetric/high/single_approach --min-green 20
+if errorlevel 1 echo FAILED w3 run 4: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern single_approach --fault-severity high --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R2_mingreen20/symmetric/high/single_approach --min-green 20 >> results_rev\failures_w3.txt
+
+echo [w3 5/16] results_rev/R4_plan_scale050/symmetric/medium/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale050/symmetric/medium/phase_symmetric --plan-scale 0.5
+if errorlevel 1 echo FAILED w3 run 5: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale050/symmetric/medium/phase_symmetric --plan-scale 0.5 >> results_rev\failures_w3.txt
+
+echo [w3 6/16] results_rev/R4_plan_scale050/symmetric/high/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale050/symmetric/high/phase_symmetric --plan-scale 0.5
+if errorlevel 1 echo FAILED w3 run 6: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale050/symmetric/high/phase_symmetric --plan-scale 0.5 >> results_rev\failures_w3.txt
+
+echo [w3 7/16] results_rev/R4_plan_scale080/symmetric/medium/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale080/symmetric/medium/phase_symmetric --plan-scale 0.8
+if errorlevel 1 echo FAILED w3 run 7: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale080/symmetric/medium/phase_symmetric --plan-scale 0.8 >> results_rev\failures_w3.txt
+
+echo [w3 8/16] results_rev/R4_plan_scale080/symmetric/high/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale080/symmetric/high/phase_symmetric --plan-scale 0.8
+if errorlevel 1 echo FAILED w3 run 8: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale080/symmetric/high/phase_symmetric --plan-scale 0.8 >> results_rev\failures_w3.txt
+
+echo [w3 9/16] results_rev/R4_plan_scale125/symmetric/medium/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale125/symmetric/medium/phase_symmetric --plan-scale 1.25
+if errorlevel 1 echo FAILED w3 run 9: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale125/symmetric/medium/phase_symmetric --plan-scale 1.25 >> results_rev\failures_w3.txt
+
+echo [w3 10/16] results_rev/R4_plan_scale125/symmetric/high/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale125/symmetric/high/phase_symmetric --plan-scale 1.25
+if errorlevel 1 echo FAILED w3 run 10: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale125/symmetric/high/phase_symmetric --plan-scale 1.25 >> results_rev\failures_w3.txt
+
+echo [w3 11/16] results_rev/R4_plan_scale200/symmetric/medium/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale200/symmetric/medium/phase_symmetric --plan-scale 2.0
+if errorlevel 1 echo FAILED w3 run 11: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale200/symmetric/medium/phase_symmetric --plan-scale 2.0 >> results_rev\failures_w3.txt
+
+echo [w3 12/16] results_rev/R4_plan_scale200/symmetric/high/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale200/symmetric/high/phase_symmetric --plan-scale 2.0
+if errorlevel 1 echo FAILED w3 run 12: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_scale200/symmetric/high/phase_symmetric --plan-scale 2.0 >> results_rev\failures_w3.txt
+
+echo [w3 13/16] results_rev/R4_plan_armnoise030/symmetric/medium/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_armnoise030/symmetric/medium/phase_symmetric --plan-noise 0.3
+if errorlevel 1 echo FAILED w3 run 13: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level medium --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_armnoise030/symmetric/medium/phase_symmetric --plan-noise 0.3 >> results_rev\failures_w3.txt
+
+echo [w3 14/16] results_rev/R4_plan_armnoise030/symmetric/high/phase_symmetric
+python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_armnoise030/symmetric/high/phase_symmetric --plan-noise 0.3
+if errorlevel 1 echo FAILED w3 run 14: python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric --demand-level high --fault-pattern phase_symmetric --fault-severity high --controllers pasa_cg_mp --fault-modes NONE HZ SL DR --n-seeds 10 --net-dir data/net_rev_w3 --output-dir results_rev/R4_plan_armnoise030/symmetric/high/phase_symmetric --plan-noise 0.3 >> results_rev\failures_w3.txt
+
+echo [w3 15/16] results_rev/R8_c1_mingreen20/phase_symmetric
+python -m pasa_itsc.main run-sweep --network cologne1 --demand-profile asymmetric --fault-pattern phase_symmetric --fault-severity high --emissions --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_c1_rev_w3 --output-dir results_rev/R8_c1_mingreen20/phase_symmetric --min-green 20
+if errorlevel 1 echo FAILED w3 run 15: python -m pasa_itsc.main run-sweep --network cologne1 --demand-profile asymmetric --fault-pattern phase_symmetric --fault-severity high --emissions --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_c1_rev_w3 --output-dir results_rev/R8_c1_mingreen20/phase_symmetric --min-green 20 >> results_rev\failures_w3.txt
+
+echo [w3 16/16] results_rev/R8_c1_mingreen20/cross_phase
+python -m pasa_itsc.main run-sweep --network cologne1 --demand-profile asymmetric --fault-pattern cross_phase --fault-severity high --emissions --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_c1_rev_w3 --output-dir results_rev/R8_c1_mingreen20/cross_phase --min-green 20
+if errorlevel 1 echo FAILED w3 run 16: python -m pasa_itsc.main run-sweep --network cologne1 --demand-profile asymmetric --fault-pattern cross_phase --fault-severity high --emissions --controllers std_mp std_mp_q std_mp_recall std_mp_maxrecall webster_fallback_mp oracle_cg_mp pasa_max_mp pasa_cg_mp --fault-modes NONE HZ SL GN ID DR --n-seeds 10 --net-dir data/net_c1_rev_w3 --output-dir results_rev/R8_c1_mingreen20/cross_phase --min-green 20 >> results_rev\failures_w3.txt
+
+echo Window 3 finished.

@@ -1,0 +1,7 @@
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+gymnasium>=0.29
+# traci and sumolib come with SUMO (set SUMO_HOME), or: pip install eclipse-sumo==1.24.0
+# stable-baselines3>=2.0   # only for the DQN baseline (train-rl), not used in the papers

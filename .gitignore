@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+figures/
+results_new/
+tables/out/
+tables/out_extra/
+tables/conf/
+models/
+*.log

@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the papers listed in README.md and this archive."
+title: "Max-pressure signal control under detector faults: SUMO code, results and analysis"
+type: software
+authors:
+  - family-names: Idris
+    given-names: Hussaini Aliyu
+    affiliation: "University of Modena and Reggio Emilia"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: Cabri
+    given-names: Giacomo
+    affiliation: "University of Modena and Reggio Emilia"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/husal10/pasa-cg"
+license: MIT
+version: "1.0-itsc2027"
+keywords:
+  - traffic signal control
+  - max-pressure
+  - detector faults
+  - SUMO

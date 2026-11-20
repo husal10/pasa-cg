@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+  <!-- 4 uniform flows (p=0.1) -->
+  <flow id="flow_1" from="B_S_SW_I_SW" to="I_NW_B_N_NW" begin="0" end="100000" probability="0.1" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="flow_2" from="B_S_SE_I_SE" to="I_NE_B_N_NE" begin="0" end="100000" probability="0.1" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="flow_3" from="B_W_SW_I_SW" to="I_SE_B_E_SE" begin="0" end="100000" probability="0.1" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="flow_4" from="B_W_NW_I_NW" to="I_NE_B_E_NE" begin="0" end="100000" probability="0.1" departSpeed="max" departPos="base" departLane="best"/>
+</routes>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes>
+  <!-- 8 entries x (through/right/left = 0.70/0.15/0.15), p=0.26 per entry, profile=asymmetric -->
+  <route id="r_I_NE_E_through" edges="B_E_NE_I_NE I_NE_I_NW I_NW_B_W_NW"/>
+  <route id="r_I_NE_E_right" edges="B_E_NE_I_NE I_NE_B_N_NE"/>
+  <route id="r_I_NE_E_left" edges="B_E_NE_I_NE I_NE_I_SE I_SE_B_S_SE"/>
+  <route id="r_I_NE_N_through" edges="B_N_NE_I_NE I_NE_I_SE I_SE_B_S_SE"/>
+  <route id="r_I_NE_N_right" edges="B_N_NE_I_NE I_NE_I_NW I_NW_B_W_NW"/>
+  <route id="r_I_NE_N_left" edges="B_N_NE_I_NE I_NE_B_E_NE"/>
+  <route id="r_I_NW_N_through" edges="B_N_NW_I_NW I_NW_I_SW I_SW_B_S_SW"/>
+  <route id="r_I_NW_N_right" edges="B_N_NW_I_NW I_NW_B_W_NW"/>
+  <route id="r_I_NW_N_left" edges="B_N_NW_I_NW I_NW_I_NE I_NE_B_E_NE"/>
+  <route id="r_I_NW_W_through" edges="B_W_NW_I_NW I_NW_I_NE I_NE_B_E_NE"/>
+  <route id="r_I_NW_W_right" edges="B_W_NW_I_NW I_NW_I_SW I_SW_B_S_SW"/>
+  <route id="r_I_NW_W_left" edges="B_W_NW_I_NW I_NW_B_N_NW"/>
+  <route id="r_I_SE_E_through" edges="B_E_SE_I_SE I_SE_I_SW I_SW_B_W_SW"/>
+  <route id="r_I_SE_E_right" edges="B_E_SE_I_SE I_SE_I_NE I_NE_B_N_NE"/>
+  <route id="r_I_SE_E_left" edges="B_E_SE_I_SE I_SE_B_S_SE"/>
+  <route id="r_I_SE_S_through" edges="B_S_SE_I_SE I_SE_I_NE I_NE_B_N_NE"/>
+  <route id="r_I_SE_S_right" edges="B_S_SE_I_SE I_SE_B_E_SE"/>
+  <route id="r_I_SE_S_left" edges="B_S_SE_I_SE I_SE_I_SW I_SW_B_W_SW"/>
+  <route id="r_I_SW_S_through" edges="B_S_SW_I_SW I_SW_I_NW I_NW_B_N_NW"/>
+  <route id="r_I_SW_S_right" edges="B_S_SW_I_SW I_SW_I_SE I_SE_B_E_SE"/>
+  <route id="r_I_SW_S_left" edges="B_S_SW_I_SW I_SW_B_W_SW"/>
+  <route id="r_I_SW_W_through" edges="B_W_SW_I_SW I_SW_I_SE I_SE_B_E_SE"/>
+  <route id="r_I_SW_W_right" edges="B_W_SW_I_SW I_SW_B_S_SW"/>
+  <route id="r_I_SW_W_left" edges="B_W_SW_I_SW I_SW_I_NW I_NW_B_N_NW"/>
+  <flow id="f_I_NE_E_through" route="r_I_NE_E_through" begin="0" end="100000" probability="0.1092" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NE_E_right" route="r_I_NE_E_right" begin="0" end="100000" probability="0.0234" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NE_E_left" route="r_I_NE_E_left" begin="0" end="100000" probability="0.0234" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NE_N_through" route="r_I_NE_N_through" begin="0" end="100000" probability="0.1092" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NE_N_right" route="r_I_NE_N_right" begin="0" end="100000" probability="0.0234" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NE_N_left" route="r_I_NE_N_left" begin="0" end="100000" probability="0.0234" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NW_N_through" route="r_I_NW_N_through" begin="0" end="100000" probability="0.1092" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NW_N_right" route="r_I_NW_N_right" begin="0" end="100000" probability="0.0234" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NW_N_left" route="r_I_NW_N_left" begin="0" end="100000" probability="0.0234" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NW_W_through" route="r_I_NW_W_through" begin="0" end="100000" probability="0.2548" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NW_W_right" route="r_I_NW_W_right" begin="0" end="100000" probability="0.0546" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_NW_W_left" route="r_I_NW_W_left" begin="0" end="100000" probability="0.0546" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SE_E_through" route="r_I_SE_E_through" begin="0" end="100000" probability="0.1092" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SE_E_right" route="r_I_SE_E_right" begin="0" end="100000" probability="0.0234" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SE_E_left" route="r_I_SE_E_left" begin="0" end="100000" probability="0.0234" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SE_S_through" route="r_I_SE_S_through" begin="0" end="100000" probability="0.2548" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SE_S_right" route="r_I_SE_S_right" begin="0" end="100000" probability="0.0546" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SE_S_left" route="r_I_SE_S_left" begin="0" end="100000" probability="0.0546" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SW_S_through" route="r_I_SW_S_through" begin="0" end="100000" probability="0.2548" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SW_S_right" route="r_I_SW_S_right" begin="0" end="100000" probability="0.0546" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SW_S_left" route="r_I_SW_S_left" begin="0" end="100000" probability="0.0546" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SW_W_through" route="r_I_SW_W_through" begin="0" end="100000" probability="0.2548" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SW_W_right" route="r_I_SW_W_right" begin="0" end="100000" probability="0.0546" departSpeed="max" departPos="base" departLane="best"/>
+  <flow id="f_I_SW_W_left" route="r_I_SW_W_left" begin="0" end="100000" probability="0.0546" departSpeed="max" departPos="base" departLane="best"/>
+</routes>

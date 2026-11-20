@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edges>
+  <!-- Internal edges (bidirectional) -->
+  <edge id="I_SW_I_SE" from="I_SW" to="I_SE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_SE_I_SW" from="I_SE" to="I_SW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_NW_I_NE" from="I_NW" to="I_NE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_NE_I_NW" from="I_NE" to="I_NW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_SW_I_NW" from="I_SW" to="I_NW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_NW_I_SW" from="I_NW" to="I_SW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_SE_I_NE" from="I_SE" to="I_NE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_NE_I_SE" from="I_NE" to="I_SE" numLanes="3" speed="13.89" length="200"/>
+  <!-- Boundary stub edges -->
+  <edge id="B_S_SW_I_SW" from="B_S_SW" to="I_SW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_SW_B_S_SW" from="I_SW" to="B_S_SW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="B_S_SE_I_SE" from="B_S_SE" to="I_SE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_SE_B_S_SE" from="I_SE" to="B_S_SE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="B_N_NW_I_NW" from="B_N_NW" to="I_NW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_NW_B_N_NW" from="I_NW" to="B_N_NW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="B_N_NE_I_NE" from="B_N_NE" to="I_NE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_NE_B_N_NE" from="I_NE" to="B_N_NE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="B_W_SW_I_SW" from="B_W_SW" to="I_SW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_SW_B_W_SW" from="I_SW" to="B_W_SW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="B_W_NW_I_NW" from="B_W_NW" to="I_NW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_NW_B_W_NW" from="I_NW" to="B_W_NW" numLanes="3" speed="13.89" length="200"/>
+  <edge id="B_E_SE_I_SE" from="B_E_SE" to="I_SE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_SE_B_E_SE" from="I_SE" to="B_E_SE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="B_E_NE_I_NE" from="B_E_NE" to="I_NE" numLanes="3" speed="13.89" length="200"/>
+  <edge id="I_NE_B_E_NE" from="I_NE" to="B_E_NE" numLanes="3" speed="13.89" length="200"/>
+</edges>

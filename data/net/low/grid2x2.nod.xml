@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodes>
+  <!-- 4 traffic-light intersections (2x2 grid) -->
+  <node id="I_SW" x="0"   y="0"   type="traffic_light"/>
+  <node id="I_SE" x="200" y="0"   type="traffic_light"/>
+  <node id="I_NW" x="0"   y="200" type="traffic_light"/>
+  <node id="I_NE" x="200" y="200" type="traffic_light"/>
+
+  <!-- 8 boundary dead-end stubs (entry/exit points) -->
+  <node id="B_S_SW" x="0"    y="-200"   type="dead_end"/>
+  <node id="B_S_SE" x="200"  y="-200"   type="dead_end"/>
+  <node id="B_N_NW" x="0"    y="400"  type="dead_end"/>
+  <node id="B_N_NE" x="200"  y="400"  type="dead_end"/>
+  <node id="B_W_SW" x="-200" y="0"      type="dead_end"/>
+  <node id="B_W_NW" x="-200" y="200"    type="dead_end"/>
+  <node id="B_E_SE" x="400" y="0"     type="dead_end"/>
+  <node id="B_E_NE" x="400" y="200"   type="dead_end"/>
+</nodes>
