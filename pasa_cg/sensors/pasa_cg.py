@@ -1,5 +1,5 @@
 """
-pasa_itsc.sensors.pasa_cg
+pasa_cg.sensors.pasa_cg
 =========================
 Consistency-gated phase-aware structural aggregation (PASA-CG).
 

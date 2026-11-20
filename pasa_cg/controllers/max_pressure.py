@@ -1,5 +1,5 @@
 """
-pasa_itsc.controllers.max_pressure
+pasa_cg.controllers.max_pressure
 ==================================
 Max-pressure phase selection for a two-phase junction (Varaiya 2013).
 

@@ -1,9 +1,9 @@
 """
-pasa_itsc.evaluation.verify
+pasa_cg.evaluation.verify
 ===========================
 End-to-end methodology checks in SUMO, run before a sweep:
 
-    python -m pasa_itsc.main verify --net-dir data/net
+    python -m pasa_cg.main verify --net-dir data/net
 
 Each check runs short headless episodes (warm-up + a few minutes) and asserts a
 property the method or the experiment relies on. Prints PASS/FAIL per check
@@ -16,7 +16,7 @@ import traceback
 
 import numpy as np
 
-from pasa_itsc.env.sumo_env import SumoTrafficEnv, DECISION_STEP
+from pasa_cg.env.sumo_env import SumoTrafficEnv, DECISION_STEP
 
 APPROACH = {"N": [0, 1, 2], "S": [3, 4, 5], "E": [6, 7, 8], "W": [9, 10, 11]}
 HEADING = {"N": "south", "S": "north", "E": "west", "W": "east"}

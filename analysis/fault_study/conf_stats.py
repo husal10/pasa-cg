@@ -1,5 +1,5 @@
 """
-Statistics for the ITSC companion paper (max-pressure under detector faults, no PASA-CG).
+Statistics for the detector-fault study (max-pressure under detector faults, no PASA-CG).
 
   F1 fault map    MP-Q (and Std-MP) with a fault vs the same controller with healthy detectors,
                   paired by seed, every scenario; Holm over all fault-map tests of a controller
@@ -8,13 +8,13 @@ Statistics for the ITSC companion paper (max-pressure under detector faults, no 
   F3 guards       MP-Q / Std-MP / PASA-max under minimum green and max-red settings
   F4 Cologne1     the same two analyses on Cologne1
 
-Inputs: episodes_main.csv, rev_episodes.csv, c1_episodes.csv   Output: conf/out/*.csv
+Inputs: episodes_main.csv, rev_episodes.csv, c1_episodes.csv   Output: out_fault_study/*.csv
 """
 import numpy as np, pandas as pd
 from scipy import stats
 from pathlib import Path
 
-OUT = Path("conf/out"); OUT.mkdir(parents=True, exist_ok=True)
+OUT = Path("out_fault_study"); OUT.mkdir(parents=True, exist_ok=True)
 m = pd.read_csv("episodes_main.csv")
 r = pd.read_csv("rev_episodes.csv")
 c1 = pd.read_csv("c1_episodes.csv").rename(columns={"fault": "fault_mode"})

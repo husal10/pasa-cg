@@ -8,7 +8,7 @@ for %%D in (low medium high) do (
     for %%P in (single_approach phase_symmetric distributed) do (
         echo.
         echo ===== demand=%%D  pattern=%%P =====
-        python -m pasa_itsc.main run-sweep ^
+        python -m pasa_cg.main run-sweep ^
             --demand-level %%D ^
             --fault-pattern %%P ^
             --output-dir results/%%D/%%P ^
@@ -24,7 +24,7 @@ for %%D in (low medium high) do (
 
 echo.
 echo ===== All 9 sweeps complete - generating figures =====
-python -m pasa_itsc.main plot ^
+python -m pasa_cg.main plot ^
     --results results/medium/single_approach/all_results.json ^
     --out-dir figures/grid2x2
 

@@ -1,5 +1,5 @@
 """
-Paper figures for PASA-CG (IEEE T-ITS style). Input: episodes_main.csv and
+Paper figures for PASA-CG (IEEE two-column style). Input: episodes_main.csv and
 episodes_ablation.csv from analyse.py. Output: PDF + 600-dpi PNG per figure.
 
   fig_headline      both N-S detectors dead: network total delay by controller, demand, profile
@@ -92,7 +92,7 @@ def rel_vs(df, ref, ctrls, metric=METRIC):
 
 # Fig 1: headline, both N-S detectors dead
 def fig_headline():
-    # aggregation variants (PASA-max, v/c) are reported in the companion ITSC paper, not here
+    # aggregation variants (PASA-max, v/c) are analysed in analysis/fault_study, not here
     ctrl_sets = {"symmetric": ["fixed_time", "std_mp", "std_mp_q", "std_mp_recall", "pasa_cg_mp"],
                  "asymmetric": ["fixed_time", "std_mp", "std_mp_q", "std_mp_recall", "pasa_cg_mp"]}
     fig, axes = plt.subplots(1, 2, figsize=(COL2, 2.35), sharey=True)
@@ -256,6 +256,6 @@ Ra = heatmap(main, "std_mp_q", ["std_mp", "std_mp_recall", "pasa_cg_mp"],
 Rab = heatmap(abl, "pasa_cg_mp", ["pasa_cg_nolo_mp", "pasa_cg_nohi_mp", "pasa_cg_nofrozen_mp", "pasa_cg_nohyst_mp",
                                   "pasa_cg_nopartner_mp"], ["symmetric"], "fig_ablation",
               demands=[("medium", "Medium"), ("high", "High")])
-fig_detection()  # fig_fairness moved to the companion paper
+fig_detection()  # fairness figure: see analysis/fault_study
 pd.concat([Rs.assign(fig="heatmap_sym"), Ra.assign(fig="heatmap_asym"), Rab.assign(fig="ablation")]).to_csv(
     OUT / "figure_data_relative_changes.csv", index=False)

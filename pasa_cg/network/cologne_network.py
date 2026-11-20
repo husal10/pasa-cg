@@ -1,5 +1,5 @@
 """
-pasa_itsc.network.cologne_network
+pasa_cg.network.cologne_network
 ===================================
 Setup helper for the Cologne1 single-intersection real-world network.
 
@@ -33,7 +33,7 @@ Demand (cologne1.rou.xml)
 
 Usage
 -----
-    from pasa_itsc.network.cologne_network import build_cologne1
+    from pasa_cg.network.cologne_network import build_cologne1
     net_path, rou_path = build_cologne1(output_dir="data/net")
 
     # With explicit source files (first-time setup):
@@ -252,7 +252,7 @@ def _write_sumo_config(cfg_path: Path, net_path: Path, rou_path: Path) -> None:
     cfg_path.write_text(xml, encoding="utf-8")
 
 
-# CLI (python -m pasa_itsc.network.cologne_network)
+# CLI (python -m pasa_cg.network.cologne_network)
 
 def _cli():
     import argparse

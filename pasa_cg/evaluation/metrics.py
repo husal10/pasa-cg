@@ -1,5 +1,5 @@
 """
-pasa_itsc.evaluation.metrics
+pasa_cg.evaluation.metrics
 ============================
 Per-episode result record (EpisodeResult) and summaries over seeds
 (mean, standard deviation and t-based 95% confidence interval).

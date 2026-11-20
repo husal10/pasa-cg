@@ -1,9 +1,9 @@
 """
-Fig. 1 of the ITSC companion paper: the 2x2 SUMO grid drawn from its network file, with the
+Network figure of the detector-fault study: the 2x2 SUMO grid drawn from its network file, with the
 faulted junction (I_SE) and the four spatial fault patterns A-D at that junction.
 
 Lane geometry, junction outlines and lane indices are read from grid2x2.net.xml with sumolib,
-so the drawing is the simulated network itself. Fault sets follow pasa_itsc/env/sumo_env.py:
+so the drawing is the simulated network itself. Fault sets follow pasa_cg/env/sumo_env.py:
   A single_approach  N            (odd seeds: W)
   B phase_symmetric  N + S        (odd seeds: W + E)
   C cross_phase      N + W        (same set for both orientations)

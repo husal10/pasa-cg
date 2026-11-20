@@ -1,5 +1,5 @@
 """
-pasa_itsc.main
+pasa_cg.main
 ==============
 Command-line entry point.
 
@@ -13,12 +13,12 @@ train-rl    train the DQN baseline on healthy detectors (not used in the papers)
 
 Examples
 --------
-    python -m pasa_itsc.main build-net --output-dir data/net
-    python -m pasa_itsc.main verify --net-dir data/net
-    python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile symmetric \
+    python -m pasa_cg.main build-net --output-dir data/net
+    python -m pasa_cg.main verify --net-dir data/net
+    python -m pasa_cg.main run-sweep --network grid2x2 --demand-profile symmetric \
         --demand-level medium --fault-pattern phase_symmetric --fault-severity high \
         --n-seeds 10 --net-dir data/net_sym --output-dir results/example
-    python -m pasa_itsc.main demo --controller pasa_cg_mp --fault HZ --fault-pattern phase_symmetric
+    python -m pasa_cg.main demo --controller pasa_cg_mp --fault HZ --fault-pattern phase_symmetric
 """
 
 from __future__ import annotations
@@ -42,7 +42,7 @@ def _run_preview(*, controller, fault, fault_fraction, fault_intersection,
     """Run one episode (optionally in SUMO-GUI) and report whether the
     fault-site lanes actually carry traffic. Returns True if they do."""
     import numpy as np
-    from pasa_itsc.env.sumo_env import SumoTrafficEnv
+    from pasa_cg.env.sumo_env import SumoTrafficEnv
 
     print(f"[preview] controller={controller}  fault={fault}  pattern={fault_pattern}  "
           f"demand={demand_level}  junction={fault_intersection}  approach={fault_approach}  "
@@ -113,21 +113,21 @@ def _run_preview(*, controller, fault, fault_fraction, fault_intersection,
 
 
 def cmd_verify(args):
-    from pasa_itsc.evaluation.verify import run_all
+    from pasa_cg.evaluation.verify import run_all
     ok = run_all(net_dir=args.net_dir, warmup=args.warmup, n_post=args.steps)
     sys.exit(0 if ok else 1)
 
 
 def cmd_build_net(args):
-    from pasa_itsc.network.build_network import build_2x2_grid
+    from pasa_cg.network.build_network import build_2x2_grid
     net, rou = build_2x2_grid(output_dir=args.output_dir, overwrite=args.overwrite)
     print(f"\nOK Network ready\n  net : {net}\n  rou : {rou}")
 
 
 def cmd_train_rl(args):
-    from pasa_itsc.network.build_network import build_2x2_grid
-    from pasa_itsc.env.sumo_env         import SumoTrafficEnv
-    from pasa_itsc.controllers.rl_agent  import DQNAgent
+    from pasa_cg.network.build_network import build_2x2_grid
+    from pasa_cg.env.sumo_env         import SumoTrafficEnv
+    from pasa_cg.controllers.rl_agent  import DQNAgent
 
     print(f"[train-rl] Building network in {args.net_dir}...")
     build_2x2_grid(output_dir=args.net_dir)
@@ -151,7 +151,7 @@ def cmd_train_rl(args):
 
 
 def cmd_run_sweep(args):
-    from pasa_itsc.evaluation.experiment import run_fault_sweep
+    from pasa_cg.evaluation.experiment import run_fault_sweep
 
     if args.preview or args.preview_only:
         _run_preview(
@@ -171,7 +171,7 @@ def cmd_run_sweep(args):
     # DEFAULT_FAULT_MODES; only override when the user explicitly listed values.
     controllers = args.controllers or None
     if controllers is None and args.controller_set:
-        from pasa_itsc.evaluation.experiment import controller_set
+        from pasa_cg.evaluation.experiment import controller_set
         controllers = controller_set(args.controller_set, args.demand_profile)
     fault_modes = args.fault_modes  or None
 
@@ -240,7 +240,7 @@ def cmd_demo(args):
 
 def _build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="pasa_itsc",
+        prog="pasa_cg",
         description="Max-pressure under detector faults: SUMO experiments",
         formatter_class=argparse.RawTextHelpFormatter,
     )

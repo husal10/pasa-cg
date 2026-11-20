@@ -1,5 +1,5 @@
 """
-pasa_itsc.sensors.fault_modes
+pasa_cg.sensors.fault_modes
 =============================
 Detector faults applied per lane to the queue readings (veh).
 

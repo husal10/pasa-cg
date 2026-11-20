@@ -1,5 +1,5 @@
 """
-pasa_itsc.sensors.pasa
+pasa_cg.sensors.pasa
 ======================
 Opposing-arm aggregation of lane readings (N with S, E with W, lane by lane).
 

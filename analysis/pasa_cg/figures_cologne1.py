@@ -1,5 +1,5 @@
 """
-Cologne1 real-junction case study figures (IEEE T-ITS style, same look as figures_v2.py).
+Cologne1 real-junction case study figures (IEEE two-column style, same look as figures_v2.py).
 Input: results_c1/<pattern>/all_results.json (07:00-08:00 route-file demand, emissions on).
 
   fig_c1_heatmap       % change in network total delay vs queue-only MP, paired by seed, Holm within scenario
@@ -37,7 +37,7 @@ COLOR = {"fixed_time": "#BBBBBB", "std_mp": "#4477AA", "std_mp_q": "#66CCEE", "s
          "pasa_max_mp": "#CCBB44", "pasa_mean_vc_mp": "#AA3377", "pasa_max_vc_mp": "#EE99AA", "pasa_cg_mp": "#CC3311"}
 HATCH = {"fixed_time": "", "std_mp": "", "std_mp_q": "////", "std_mp_recall": "xxx", "pasa_max_mp": "...",
          "pasa_mean_vc_mp": "\\\\\\\\", "pasa_max_vc_mp": "--", "pasa_cg_mp": ""}
-CTRLS = ["fixed_time", "std_mp", "std_mp_q", "std_mp_recall", "pasa_cg_mp"]  # aggregation variants: companion ITSC paper
+CTRLS = ["fixed_time", "std_mp", "std_mp_q", "std_mp_recall", "pasa_cg_mp"]  # aggregation variants: see analysis/fault_study
 PAT = [("single_approach", "A: one approach"), ("cross_phase", "C: cross-phase"),
        ("phase_symmetric", "B: both N-S"), ("distributed", "D: distributed")]
 FAULTS = ["HZ", "SL", "GN", "ID", "DR"]

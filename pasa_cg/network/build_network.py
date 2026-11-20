@@ -1,5 +1,5 @@
 """
-pasa_itsc.network.build_network
+pasa_cg.network.build_network
 ===============================
 Builds the 2x2 signalised grid with netconvert and writes its route file.
 
@@ -17,7 +17,7 @@ B_W_SW--I_SW--I_SE--B_E_SE
          |      |
        B_S_SW  B_S_SE
 
-    from pasa_itsc.network.build_network import build_2x2_grid
+    from pasa_cg.network.build_network import build_2x2_grid
     net_path, rou_path = build_2x2_grid(output_dir="data/net", demand_level="medium")
 """
 

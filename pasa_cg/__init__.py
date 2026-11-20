@@ -1,10 +1,10 @@
 """
-pasa_itsc - simulation code for max-pressure signal control under detector faults
+pasa_cg - simulation code for max-pressure signal control under detector faults
 ===================================================================================
-SUMO experiments behind two papers:
-  * the ITSC 2027 paper on which detector faults harm max-pressure, opposing-arm
-    aggregation and the cost of the guards;
-  * the T-ITS paper on PASA-CG, a consistency-gated filter for detector readings.
+SUMO experiments for two studies:
+  * which detector faults harm max-pressure, opposing-arm aggregation and the
+    cost of the guards;
+  * PASA-CG, a consistency-gated filter for detector readings.
 
 Sub-packages
 ------------
@@ -15,8 +15,8 @@ controllers  max-pressure (max_pressure); DQN baseline (rl_agent, not used in th
 env          SUMO environment that runs one episode for one controller
 evaluation   sweep runner (experiment), per-episode metrics (metrics), checks (verify)
 
-Command line: python -m pasa_itsc.main --help
+Command line: python -m pasa_cg.main --help
 """
 
 __version__ = "0.1.0"
-__author__  = "Hussaini Aliyu Idris, Giacomo Cabri"
+__author__  = "see CITATION.cff"

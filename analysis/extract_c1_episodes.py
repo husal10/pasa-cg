@@ -3,7 +3,7 @@ Collect the per-episode records of the Cologne1 main sweep into one table.
 
 Input : results_c1/<pattern>/all_results.json
 Output: c1_episodes.csv  (pattern, controller, fault, seed, time_loss, n_trips, co2_g, cg_tpr, cg_fpr);
-        used by analysis_revision.py, analyse_rev.py, figures_revision.py and the ITSC conf_stats.py
+        used by analysis_revision.py, analyse_rev.py, figures_revision.py and analysis/fault_study/conf_stats.py
 
 Usage: python extract_c1_episodes.py <results_c1 dir> <out csv>
 """

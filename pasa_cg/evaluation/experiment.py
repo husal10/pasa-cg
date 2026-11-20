@@ -1,5 +1,5 @@
 """
-pasa_itsc.evaluation.experiment
+pasa_cg.evaluation.experiment
 ===============================
 Sweep runner: every controller x fault mode x seed for one scenario (network,
 demand profile and level, fault pattern and severity). Each finished
@@ -7,7 +7,7 @@ controller x fault cell is written as it completes, so an interrupted sweep
 resumes where it stopped; the scenario is written to all_results.json with the
 settings, the analysis plan and a provenance record (code hash, SUMO version).
 
-    from pasa_itsc.evaluation.experiment import run_fault_sweep
+    from pasa_cg.evaluation.experiment import run_fault_sweep
     run_fault_sweep(network="grid2x2", demand_profile="symmetric", demand_level="medium",
                     fault_pattern="phase_symmetric", n_seeds=10, output_dir="results/example")
 """
@@ -21,9 +21,9 @@ from pathlib import Path
 from dataclasses import asdict
 from typing import Callable
 
-from pasa_itsc.sensors.fault_modes     import ALL_FAULT_MODES
-from pasa_itsc.evaluation.metrics      import EpisodeResult, aggregate_results, format_results_table
-from pasa_itsc.network.build_network   import DEMAND_LEVELS, demand_prob
+from pasa_cg.sensors.fault_modes     import ALL_FAULT_MODES
+from pasa_cg.evaluation.metrics      import EpisodeResult, aggregate_results, format_results_table
+from pasa_cg.network.build_network   import DEMAND_LEVELS, demand_prob
 
 
 # Default sweep settings
@@ -155,7 +155,7 @@ def run_fault_sweep(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Lazily import env to avoid SUMO import errors in dry runs
-    from pasa_itsc.env.sumo_env import SumoTrafficEnv
+    from pasa_cg.env.sumo_env import SumoTrafficEnv
 
     # Build / verify network once before the sweep loop
     _ensure_network(network, net_dir, net_src, rou_src,
@@ -167,9 +167,9 @@ def run_fault_sweep(
         if rl_model_path is None:
             raise ValueError(
                 "rl_model_path must be provided when 'rl' is in controllers. "
-                "Train first with: python -m pasa_itsc.main train-rl"
+                "Train first with: python -m pasa_cg.main train-rl"
             )
-        from pasa_itsc.controllers.rl_agent import DQNAgent
+        from pasa_cg.controllers.rl_agent import DQNAgent
         # cologne1 obs: 4 PASA aggs + 1 phase = 5-dim (C1_OBS_DIM)
         # grid2x2 obs : 8 PASA aggs + 1 phase = 9-dim (OBS_DIM x 1 junction)
         _rl_obs_dim = 5 if network == "cologne1" else 9
@@ -473,11 +473,11 @@ def _ensure_network(
 ) -> None:
     """Build / verify network files before the sweep starts."""
     if network == "grid2x2":
-        from pasa_itsc.network.build_network import build_2x2_grid
+        from pasa_cg.network.build_network import build_2x2_grid
         build_2x2_grid(output_dir=net_dir,
                         demand_level=demand_level, flow_prob=flow_prob)
     elif network == "cologne1":
-        from pasa_itsc.network.cologne_network import build_cologne1
+        from pasa_cg.network.cologne_network import build_cologne1
         build_cologne1(output_dir=net_dir, net_src=net_src, rou_src=rou_src)
     else:
         raise ValueError(f"Unknown network {network!r}")
@@ -505,11 +505,11 @@ def find_worst_fault_location(
 
     Usage
     -----
-        from pasa_itsc.evaluation.experiment import find_worst_fault_location
+        from pasa_cg.evaluation.experiment import find_worst_fault_location
         idx, approach = find_worst_fault_location()
         # Then pass fault_intersection=idx, fault_approach=approach to run_fault_sweep
     """
-    from pasa_itsc.env.sumo_env import SumoTrafficEnv
+    from pasa_cg.env.sumo_env import SumoTrafficEnv
 
     approaches   = ["N", "S", "E", "W"]
     n_junctions  = 4
@@ -566,7 +566,7 @@ def run_single(
     network:     str       = "grid2x2",
 ) -> EpisodeResult:
     """Run a single (controller, fault_mode, seed) episode and return result."""
-    from pasa_itsc.env.sumo_env import SumoTrafficEnv
+    from pasa_cg.env.sumo_env import SumoTrafficEnv
 
     env = SumoTrafficEnv(
         network    = network,

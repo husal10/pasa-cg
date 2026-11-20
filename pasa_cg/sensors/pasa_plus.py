@@ -1,5 +1,5 @@
 """
-pasa_itsc.sensors.pasa_plus
+pasa_cg.sensors.pasa_plus
 ===========================
 Earlier three-stage preprocessor (per-lane plausibility filter, opposing-arm
 maximum, phase-conditional exponential smoothing). Kept so that older result

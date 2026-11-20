@@ -1,5 +1,5 @@
 """
-pasa_itsc.sensors.obs_filters
+pasa_cg.sensors.obs_filters
 =============================
 Input cleaners for corrupted detector readings at one signalised junction,
 behind one interface. Intended for the inputs of a learning controller (RL)
@@ -51,9 +51,9 @@ from __future__ import annotations
 
 import numpy as np
 
-from pasa_itsc.sensors.pasa import PASAPreprocessor
-from pasa_itsc.sensors.pasa_plus import PASAPlusPreprocessor
-from pasa_itsc.sensors.pasa_cg import ConsistencyGatedPASA, CG_VARIANTS
+from pasa_cg.sensors.pasa import PASAPreprocessor
+from pasa_cg.sensors.pasa_plus import PASAPlusPreprocessor
+from pasa_cg.sensors.pasa_cg import ConsistencyGatedPASA, CG_VARIANTS
 
 Q_MAX = 20.0
 
@@ -225,7 +225,7 @@ def make_filter(name: str, lanes_per_arm: int = 3, q_max: float = Q_MAX, **kw) -
     raise ValueError(f"unknown filter {name!r}; choose from {available_filters()}")
 
 
-# self-test (no SUMO): python -m pasa_itsc.sensors.obs_filters
+# self-test (no SUMO): python -m pasa_cg.sensors.obs_filters
 def _self_test(n_steps: int = 600, seed: int = 0) -> bool:
     rng = np.random.default_rng(seed)
     L, w = 3, np.array([0.30, 0.42, 0.30, 0.42])

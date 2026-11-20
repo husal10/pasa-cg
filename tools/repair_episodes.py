@@ -8,7 +8,7 @@ recorded settings (needs patch14, which checks every new episode) and replace it
 in the cell file and all_results.json. Fixed-time episodes are replaced in every
 fault cell of the folder (they are reused across faults).
 
-Run from pasa_itsc_code:
+Run from pasa_cg_code:
     python repair_episodes.py audit                       # list suspects only
     python repair_episodes.py repair --net-dir data/net_repair
 """
@@ -44,8 +44,8 @@ def suspects(rows):
 
 def rerun(folder, ctrl, fault, seed, approach, net_dir):
     meta = json.loads((Path(folder) / "all_results.json").read_text())
-    from pasa_itsc.env.sumo_env import SumoTrafficEnv
-    from pasa_itsc.evaluation.experiment import _run_episode, _ensure_network
+    from pasa_cg.env.sumo_env import SumoTrafficEnv
+    from pasa_cg.evaluation.experiment import _run_episode, _ensure_network
     net = meta.get("network", "grid2x2")
     if meta.get("demand_level") not in ("low", "medium", "high"):   # cologne1: route-file demand
         meta["demand_level"] = "medium"

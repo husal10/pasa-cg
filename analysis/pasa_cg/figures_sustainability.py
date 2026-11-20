@@ -1,5 +1,5 @@
 """
-Sustainability figures for PASA-CG (IEEE T-ITS style, same look as figures_v2.py).
+Sustainability figures for PASA-CG (IEEE two-column style, same look as figures_v2.py).
 Input: results_emis/<profile>/<demand>/<pattern>/all_results.json (SUMO emissions
 device on; key cells: medium/high demand, patterns A and B, both profiles).
 
@@ -41,7 +41,7 @@ DEM = [("medium", "Medium"), ("high", "High")]
 PAT = [("single_approach", "A: one approach"), ("phase_symmetric", "B: both N-S")]
 FAULTS = ["HZ", "SL", "GN", "ID", "DR"]
 FAULT_NAME = {"HZ": "dead", "SL": "stuck", "GN": "noise", "ID": "dropout", "DR": "drift"}
-# aggregation variants are reported in the companion ITSC paper
+# aggregation variants are analysed in analysis/fault_study
 CTRLS = {"symmetric": ["fixed_time", "std_mp", "std_mp_q", "std_mp_recall", "pasa_cg_mp"],
          "asymmetric": ["fixed_time", "std_mp", "std_mp_q", "std_mp_recall", "pasa_cg_mp"]}
 CMAP = LinearSegmentedColormap.from_list("bw", ["#2166AC", "#92C5DE", "#F7F7F7", "#F4A582", "#B2182B"])

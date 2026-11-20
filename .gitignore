@@ -5,6 +5,6 @@ figures/
 results_new/
 tables/out/
 tables/out_extra/
-tables/conf/
+tables/out_fault_study/
 models/
 *.log

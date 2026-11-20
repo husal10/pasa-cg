@@ -1,6 +1,6 @@
 """
 Flow chart of PASA-CG (consistency-gated phase-aware structural aggregation):
-one decision step at one junction.  Mirrors pasa_itsc/sensors/pasa_cg.py (v3.2)
+one decision step at one junction.  Mirrors pasa_cg/sensors/pasa_cg.py (v3.2)
 and the pasa_cg_mp branch of env/sumo_env.py.
 
 Output: fig_pasa_cg_flow.{pdf,svg,png}  (IEEE double column, 7.16 in wide)

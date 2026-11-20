@@ -1,11 +1,11 @@
 """
-Figures for the ITSC companion paper (same look as the T-ITS figures).
+Figures for the detector-fault study (same style as the PASA-CG figures).
 
   fig_conf_faultmap     change in network total delay of MP-Q with a fault vs MP-Q with healthy detectors
   fig_conf_aggregation  change in network total delay of PASA-max vs MP-Q
   fig_conf_guards       MP-Q delay per trip under four guard settings, healthy vs both N-S detectors dead
 
-Inputs: conf/out/*.csv from conf_stats.py, episodes_main.csv, rev_episodes.csv
+Inputs: out_fault_study/*.csv from conf_stats.py, episodes_main.csv, rev_episodes.csv
 Usage: python conf_figures.py <fig_dir>
 """
 import sys, math
@@ -18,7 +18,7 @@ from matplotlib.colors import TwoSlopeNorm, LinearSegmentedColormap
 from scipy import stats
 
 OUT = Path(sys.argv[1]); OUT.mkdir(parents=True, exist_ok=True)
-S = Path("conf/out")
+S = Path("out_fault_study")
 plt.rcParams.update({
     "font.family": "serif", "font.serif": ["Times New Roman", "Liberation Serif", "DejaVu Serif"],
     "mathtext.fontset": "stix", "font.size": 8, "axes.titlesize": 8, "axes.labelsize": 8,

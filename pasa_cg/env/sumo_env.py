@@ -1,5 +1,5 @@
 """
-pasa_itsc.env.sumo_env
+pasa_cg.env.sumo_env
 ======================
 SUMO environment (TraCI) for one episode: builds or loads the network, injects
 detector faults at the chosen junction, runs the chosen controller every
@@ -45,16 +45,16 @@ from typing import Any
 import gymnasium as gym
 from gymnasium import spaces
 
-from pasa_itsc.network.build_network import build_2x2_grid, DEMAND_LEVELS, _edge_flows, demand_prob
-from pasa_itsc.sensors.fault_modes   import FaultInjector, FaultMode
-from pasa_itsc.sensors.pasa          import PASAPreprocessor
-from pasa_itsc.sensors.pasa_plus     import PASAPlusPreprocessor
-from pasa_itsc.sensors.pasa_cg       import ConsistencyGatedPASA, CG_VARIANTS
-from pasa_itsc.sensors.obs_filters   import make_filter
+from pasa_cg.network.build_network import build_2x2_grid, DEMAND_LEVELS, _edge_flows, demand_prob
+from pasa_cg.sensors.fault_modes   import FaultInjector, FaultMode
+from pasa_cg.sensors.pasa          import PASAPreprocessor
+from pasa_cg.sensors.pasa_plus     import PASAPlusPreprocessor
+from pasa_cg.sensors.pasa_cg       import ConsistencyGatedPASA, CG_VARIANTS
+from pasa_cg.sensors.obs_filters   import make_filter
 
 # PASA-CG controllers: full method + ablations (pasa_cg_<variant>_mp)
 CG_CONTROLLERS = {f"{v}_mp": kw for v, kw in CG_VARIANTS.items()}
-from pasa_itsc.controllers.max_pressure import MaxPressureController
+from pasa_cg.controllers.max_pressure import MaxPressureController
 
 
 # ---------------------------------------------------------------------------

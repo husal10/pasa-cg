@@ -1,5 +1,5 @@
 """
-pasa_itsc.controllers.rl_agent
+pasa_cg.controllers.rl_agent
 ==============================
 DQN baseline (Stable-Baselines3) trained on healthy detectors. Not used in the
 papers; kept for the follow-up work on learning controllers.

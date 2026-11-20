@@ -1,5 +1,5 @@
 """
-Revision figures (IEEE T-ITS style, same look as figures_v2.py / figures_cologne1.py).
+Figures for the guard and diagnosis-delay sweeps (IEEE two-column style, same look as figures_v2.py / figures_cologne1.py).
 
   fig_rev_guards     both N-S detectors dead (pattern B, HZ), symmetric grid: delay per trip under four
                      guard settings (min green / max red), with MP-Q healthy for reference

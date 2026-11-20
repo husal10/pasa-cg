@@ -3,7 +3,7 @@ Collect the per-episode records of the revision sweeps into one table.
 
 Input : results_rev/<set>/.../all_results.json   (one file per set x profile x demand x pattern)
 Output: rev_episodes.csv                          (one row per episode; used by analyse_rev.py,
-                                                   figures_revision.py and the ITSC conf_stats.py)
+                                                   figures_revision.py and analysis/fault_study/conf_stats.py)
 
 The set name is the first folder below results_rev. Cologne1 runs get demand = "c1".
 total_delay_vh = time_loss * n_trips / 3600 (network total delay, vehicle-hours).

@@ -10,14 +10,14 @@ PATS = ["single_approach", "cross_phase", "phase_symmetric", "distributed"]
 
 
 def grid(w, out, profile, demand, pattern, ctrls, faults, extra=""):
-    return (f"python -m pasa_itsc.main run-sweep --network grid2x2 --demand-profile {profile} "
+    return (f"python -m pasa_cg.main run-sweep --network grid2x2 --demand-profile {profile} "
             f"--demand-level {demand} --fault-pattern {pattern} --fault-severity high "
             f"--controllers {ctrls} --fault-modes {faults} --n-seeds 10 "
             f"--net-dir data/net_rev_w{w} --output-dir {out} {extra}").strip()
 
 
 def c1(w, out, pattern, ctrls, faults, extra=""):
-    return (f"python -m pasa_itsc.main run-sweep --network cologne1 --demand-profile asymmetric "
+    return (f"python -m pasa_cg.main run-sweep --network cologne1 --demand-profile asymmetric "
             f"--fault-pattern {pattern} --fault-severity high --emissions "
             f"--controllers {ctrls} --fault-modes {faults} --n-seeds 10 "
             f"--net-dir data/net_c1_rev_w{w} --output-dir {out} {extra}").strip()
@@ -86,7 +86,7 @@ W[3].append(c1(3, "results_rev/R8_c1_mingreen20/cross_phase", "cross_phase", ALL
 here = Path(__file__).parent
 for w, cmds in W.items():
     lines = ["@echo off", "setlocal", f"rem Revision sweeps, window {w}: {len(cmds)} runs.",
-             "rem Run from the pasa_itsc_code folder. Finished cells are skipped, so it can be restarted.",
+             "rem Run from the pasa_cg_code folder. Finished cells are skipped, so it can be restarted.",
              "if not exist results_rev mkdir results_rev",
              f"if not exist data\\net_c1_rev_w{w} xcopy /I /Y /Q data\\net_c1_phase_symmetric data\\net_c1_rev_w{w} >nul", ""]
     for k, c in enumerate(cmds, 1):
